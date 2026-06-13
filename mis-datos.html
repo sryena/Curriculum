@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curriculum - Mis Datos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+</head>
+<body class="fade">
+    <header>
+        <div class="menu-btn" onclick="toggleMenu()">☰</div>
+        <h1>Datos Personales</h1>
+        <button id="boton-tema">Tema</button>
+    </header>
+
+    <nav id="sidebar">
+        <div class="logo-favicon">
+            <img src="favicon.png" alt="Mi Logo">
+        </div>
+        <div class="close-btn" onclick="toggleMenu()">×</div>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="mis-datos.html">Mis Datos</a></li>
+            <li><a href="experiencia.html">Experiencia Laboral</a></li>
+            <li><a href="permisos.html">Permisos y Títulos</a></li>
+            <li><a href="habilidades.html">Habilidades</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="seccion-cv datos-detallados">
+            <div class="seccion-cabecera">
+                <h2>Información personal</h2>
+                <p>Datos de contacto, ubicación e idiomas principales.</p>
+            </div>
+
+            <article class="cv-card destacado">
+                <div class="titulo-meta datos-grid">
+                    <p><strong>Nombre completo:</strong> Yenai Lorente Casado</p>
+                    <p><strong>Fecha de nacimiento:</strong> 28 de mayo de 2008</p>
+                    <p><strong>Ubicación:</strong> Cataluña, España</p>
+                    <p><strong>Nacionalidad:</strong> Española</p>
+                    <p><strong>Idiomas:</strong> Español, catalán, inglés medio y portugués básico</p>
+                    <p><strong>Correo:</strong> <a href="mailto:sryenalc@gmail.com">sryenalc@gmail.com</a></p>
+                    <p class="dato-centrado"><strong>Teléfono:</strong> 722 409 665</p>
+                </div>
+            </article>
+        </section>
+
+        <section class="seccion-cv intereses">
+            <div class="seccion-cabecera">
+                <h2>Intereses personales</h2>
+            </div>
+
+            <article class="cv-card destacado">
+                <p class="descripcion">
+                    Me apasiona el mundo de la informática, especialmente el montaje y mantenimiento de equipos,
+                    el desarrollo de software y las redes. En mi tiempo libre me gusta experimentar con nuevas
+                    tecnologías, aprender programación y seguir las últimas novedades del sector tecnológico.
+                </p>
+            </article>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

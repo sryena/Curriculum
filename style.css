@@ -1,0 +1,683 @@
+:root {
+    --fondo: #f4f4f4;
+    --fondo-header: #e0e0e0;
+    --fondo-tarjeta: #ffffff;
+    --fondo-habilidad: #f8f8f8;
+    --texto: #333;
+    --texto-secundario: #555;
+    --morado: purple;
+    --borde-tarjeta: rgba(0, 0, 0, 0.1);
+    --menu-bg: #333;
+    --menu-texto: white;
+}
+
+[data-tema="oscuro"] {
+    --fondo: #1e1e1e;
+    --fondo-header: #2a2a2a;
+    --fondo-tarjeta: #2a2a2a;
+    --fondo-habilidad: #333;
+    --texto: #eee;
+    --texto-secundario: #ccc;
+    --morado: #a020f0;
+    --borde-tarjeta: rgba(255, 255, 255, 0.1);
+    --menu-bg: #222;
+    --menu-texto: #eee;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Ubuntu', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--fondo);
+    color: var(--texto);
+    transition: background-color 0.3s ease, color 0.3s ease, opacity 0.6s ease-in-out;
+    text-align: center;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: var(--fondo-header);
+    padding: 15px;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.menu-btn {
+    position: absolute;
+    left: 20px;
+    cursor: pointer;
+    font-size: 2rem;
+}
+
+nav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--menu-bg);
+    overflow-x: hidden;
+    transition: 0.3s;
+    padding-top: 60px;
+    z-index: 1000;
+    text-align: left;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 20px 0;
+}
+
+nav ul li a {
+    color: var(--menu-texto);
+    padding: 15px 25px;
+    text-decoration: none;
+    display: block;
+    transition: all 0.3s;
+}
+
+nav ul li a:hover {
+    background: var(--morado);
+    transform: scale(1.05);
+}
+
+main {
+    padding: 20px;
+}
+
+h1 {
+    font-size: 2.2rem;
+    margin: 10px 0;
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin: 15px 0;
+}
+
+body.fade {
+    opacity: 0;
+}
+
+body.fade.show {
+    opacity: 1;
+}
+
+.logo-favicon {
+    position: absolute;
+    bottom: 100px;
+    left: 20px;
+}
+
+.logo-favicon img {
+    width: 40px;
+    height: 40px;
+    filter: drop-shadow(0 0 5px rgb(228, 0, 228));
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 2rem;
+    color: var(--menu-texto);
+    cursor: pointer;
+    z-index: 2000;
+    user-select: none;
+}
+
+.tarjeta-presentacion,
+.datos-detallados,
+.intereses,
+.experiencia,
+.habilidades-personales {
+    background-color: var(--fondo-tarjeta);
+    border-radius: 20px;
+    box-shadow: 0 4px 15px var(--borde-tarjeta);
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.tarjeta-presentacion {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 700px;
+    margin-top: 50px;
+}
+
+.tarjeta-presentacion:hover,
+.datos-detallados:hover,
+.intereses:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 20px rgba(128, 0, 128, 0.3);
+}
+
+.tarjeta-foto img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--morado);
+    margin-bottom: 20px;
+}
+
+.tarjeta-info h2,
+.datos-detallados h2,
+.intereses h2,
+.experiencia h2,
+.habilidades-personales h2 {
+    color: var(--morado);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.tarjeta-info p,
+.intereses p,
+.descripcion,
+.habilidad p {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--texto-secundario);
+}
+
+.tarjeta-info .contacto {
+    font-weight: bold;
+}
+
+a {
+    color: var(--morado);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.datos-detallados ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.datos-detallados li {
+    font-size: 1.1rem;
+    color: var(--texto);
+    padding: 10px 0;
+    border-bottom: 1px solid var(--borde-tarjeta);
+}
+
+.datos-detallados li:last-child {
+    border-bottom: none;
+}
+
+.datos-detallados strong {
+    color: var(--morado);
+}
+
+.intereses p {
+    text-align: justify;
+}
+
+.experiencia {
+    margin-top: 60px;
+}
+
+.experiencia-item {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--borde-tarjeta);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.experiencia-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.experiencia-item:hover,
+.habilidad:hover {
+    box-shadow: 0 6px 20px rgba(128, 0, 128, 0.2);
+}
+
+.experiencia-item:hover {
+    transform: scale(1.02);
+    border-radius: 10px;
+}
+
+.experiencia-item h3 {
+    color: var(--morado);
+    font-size: 1.4rem;
+    margin-bottom: 5px;
+}
+
+.puesto {
+    font-weight: bold;
+    color: var(--texto-secundario);
+    margin-bottom: 5px;
+}
+
+.periodo {
+    color: var(--texto-secundario);
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.habilidades-personales {
+    margin-top: 60px;
+    padding: 40px;
+}
+
+.habilidades-personales .intro {
+    text-align: center;
+    font-size: 1.15rem;
+    color: var(--texto-secundario);
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
+.habilidades-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.habilidad {
+    background-color: var(--fondo-habilidad);
+    border-left: 5px solid var(--morado);
+    padding: 20px 25px;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.habilidad:hover {
+    transform: translateX(5px);
+}
+
+.habilidad h3 {
+    margin-bottom: 8px;
+    color: var(--morado);
+    font-size: 1.2rem;
+}
+
+#boton-tema {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--morado);
+    color: #fff;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    padding: 8px 18px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+}
+
+#boton-tema:hover {
+    background: #8a00d0;
+    border-color: rgba(255, 255, 255, 0.8);
+    transform: translateY(-50%) scale(1.05);
+}
+
+.formacion {
+    max-width: 980px;
+    margin: 50px auto;
+    text-align: left;
+}
+
+.formacion-cabecera {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.formacion-cabecera h2 {
+    color: var(--morado);
+    margin-bottom: 10px;
+}
+
+.formacion-cabecera p {
+    color: var(--texto-secundario);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin: 0 auto;
+    max-width: 720px;
+}
+
+.titulo-card,
+.recomendacion-cv {
+    background: var(--fondo-tarjeta);
+    border: 1px solid var(--borde-tarjeta);
+    border-radius: 18px;
+    box-shadow: 0 4px 15px var(--borde-tarjeta);
+    padding: 28px;
+    margin-bottom: 26px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.titulo-card.destacado {
+    border-top: 5px solid var(--morado);
+}
+
+.titulo-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    align-items: flex-start;
+    border-bottom: 1px solid var(--borde-tarjeta);
+    padding-bottom: 18px;
+    margin-bottom: 18px;
+}
+
+.titulo-header h3 {
+    color: var(--morado);
+    font-size: 1.45rem;
+    line-height: 1.3;
+    margin: 8px 0 0;
+}
+
+.etiqueta {
+    display: inline-block;
+    background: rgba(128, 0, 128, 0.12);
+    color: var(--morado);
+    border: 1px solid rgba(128, 0, 128, 0.25);
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    padding: 6px 12px;
+}
+
+.etiqueta.secundaria {
+    background: var(--fondo-habilidad);
+    color: var(--texto-secundario);
+    border-color: var(--borde-tarjeta);
+}
+
+.titulo-meta {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    margin: 18px 0 22px;
+}
+
+.titulo-meta p {
+    background: var(--fondo-habilidad);
+    border-radius: 10px;
+    color: var(--texto-secundario);
+    margin: 0;
+    padding: 14px;
+    line-height: 1.45;
+}
+
+.titulo-meta strong,
+.titulo-card h4,
+.recomendacion-cv h3 {
+    color: var(--morado);
+}
+
+.titulo-card h4 {
+    font-size: 1.1rem;
+    margin: 22px 0 12px;
+}
+
+.modulos-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.modulos-grid ul,
+.recomendacion-cv ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.modulos-grid li,
+.recomendacion-cv li {
+    color: var(--texto-secundario);
+    line-height: 1.7;
+    margin-bottom: 6px;
+}
+
+.recomendacion-cv {
+    border-left: 5px solid var(--morado);
+}
+
+.recomendacion-cv h3 {
+    margin-top: 0;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 760px) {
+    header {
+        font-size: 1.2rem;
+        padding: 14px 70px;
+    }
+
+    h1 {
+        font-size: 1.45rem;
+    }
+
+    #boton-tema {
+        right: 12px;
+        padding: 7px 10px;
+        font-size: 0.9rem;
+    }
+
+    .menu-btn {
+        left: 14px;
+    }
+
+    .tarjeta-presentacion,
+    .datos-detallados,
+    .intereses,
+    .experiencia,
+    .habilidades-personales,
+    .titulo-card,
+    .recomendacion-cv {
+        border-radius: 14px;
+        margin: 24px auto;
+        padding: 22px;
+    }
+
+    .formacion {
+        margin: 26px auto;
+    }
+
+    .titulo-header,
+    .titulo-meta,
+    .modulos-grid {
+        display: block;
+    }
+
+    .titulo-meta p,
+    .modulos-grid ul {
+        margin-bottom: 12px;
+    }
+}
+
+/* --- Estilo unificado de currículum --- */
+.seccion-cv {
+    max-width: 980px;
+    margin: 50px auto;
+    text-align: left;
+}
+
+.seccion-cabecera {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.seccion-cabecera h2 {
+    color: var(--morado);
+    margin-bottom: 10px;
+}
+
+.seccion-cabecera p {
+    color: var(--texto-secundario);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin: 0 auto;
+    max-width: 720px;
+}
+
+.cv-card {
+    background: var(--fondo-tarjeta);
+    border: 1px solid var(--borde-tarjeta);
+    border-radius: 18px;
+    box-shadow: 0 4px 15px var(--borde-tarjeta);
+    padding: 28px;
+    margin-bottom: 26px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.cv-card.destacado {
+    border-top: 5px solid var(--morado);
+}
+
+.cv-card h3,
+.cv-card h4 {
+    color: var(--morado);
+}
+
+.cv-card h4 {
+    font-size: 1.1rem;
+    margin: 22px 0 12px;
+}
+
+.seccion-cv.datos-detallados,
+.seccion-cv.intereses,
+.seccion-cv.experiencia,
+.seccion-cv.habilidades-personales {
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0;
+}
+
+.inicio .tarjeta-presentacion {
+    max-width: 860px;
+    margin: 0 auto 22px;
+    padding: 34px;
+    text-align: center;
+    align-items: center;
+    border-radius: 18px;
+}
+
+.seccion-cv.datos-detallados:hover,
+.seccion-cv.intereses:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+.inicio .tarjeta-info {
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.inicio .tarjeta-info h2 {
+    margin-top: 14px;
+}
+
+.inicio .tarjeta-foto img {
+    margin: 4px 0 18px;
+}
+
+.inicio .resumen-grid {
+    max-width: 860px;
+    margin: 0 auto;
+}
+
+.resumen-grid,
+.datos-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.datos-grid .dato-centrado {
+    grid-column: 1 / -1;
+    justify-self: center;
+    min-width: min(360px, 100%);
+    text-align: center;
+}
+
+.tarjetas-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.tarjetas-grid .cv-card {
+    margin-bottom: 0;
+}
+
+.habilidad {
+    background: var(--fondo-tarjeta);
+    border-left: 1px solid var(--borde-tarjeta);
+}
+
+.habilidad:hover {
+    transform: translateY(-4px);
+}
+
+.experiencia .cv-card:hover,
+.habilidades-personales .cv-card:hover,
+.formacion .cv-card:hover,
+.inicio .cv-card:hover {
+    box-shadow: 0 6px 20px rgba(128, 0, 128, 0.24);
+}
+
+@media (max-width: 760px) {
+    .seccion-cv {
+        margin: 26px auto;
+    }
+
+    .cv-card {
+        border-radius: 14px;
+        padding: 22px;
+    }
+
+    .inicio .tarjeta-presentacion {
+        padding: 22px;
+    }
+
+    .tarjetas-grid,
+    .resumen-grid,
+    .datos-grid {
+        display: block;
+    }
+
+    .datos-grid .dato-centrado {
+        min-width: 0;
+    }
+
+    .tarjetas-grid .cv-card {
+        margin-bottom: 18px;
+    }
+}

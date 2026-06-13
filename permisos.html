@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curriculum - Permisos y Títulos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+</head>
+<body class="fade">
+    <header>
+        <div class="menu-btn" onclick="toggleMenu()">☰</div>
+        <h1>Formación y Títulos</h1>
+        <button id="boton-tema">Tema</button>
+    </header>
+
+    <nav id="sidebar">
+        <div class="logo-favicon">
+            <img src="favicon.png" alt="Mi Logo">
+        </div>
+        <div class="close-btn" onclick="toggleMenu()">×</div>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="mis-datos.html">Mis Datos</a></li>
+            <li><a href="experiencia.html">Experiencia Laboral</a></li>
+            <li><a href="permisos.html">Permisos y Títulos</a></li>
+            <li><a href="habilidades.html">Habilidades</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="seccion-cv formacion">
+            <div class="seccion-cabecera">
+                <h2>Formación académica</h2>
+                <p>Titulaciones oficiales y conocimientos técnicos adquiridos durante mi etapa formativa.</p>
+            </div>
+
+            <article class="cv-card destacado">
+                <div class="titulo-header">
+                    <div>
+                        <span class="etiqueta secundaria">Educación obligatoria</span>
+                        <h3>Educación Secundaria Obligatoria (ESO)</h3>
+                    </div>
+                    <p class="periodo">2020 - 2024</p>
+                </div>
+
+                <div class="titulo-meta">
+                    <p><strong>Centro:</strong> Institut Puig i Cadafalch</p>
+                    <p><strong>Nota media:</strong> 5,26</p>
+                    <p><strong>Estado:</strong> Titulación obtenida</p>
+                </div>
+
+                <p class="descripcion">
+                    Base académica general que me permitió continuar mi formación en el área tecnológica,
+                    reforzando competencias como organización, responsabilidad, comunicación y aprendizaje constante.
+                </p>
+            </article>
+
+            <article class="cv-card destacado">
+                <div class="titulo-header">
+                    <div>
+                        <span class="etiqueta">Título finalizado</span>
+                        <h3>Grado Medio en Sistemas Microinformáticos y Redes</h3>
+                    </div>
+                    <p class="periodo">2024 - 2026</p>
+                </div>
+
+                <div class="titulo-meta">
+                    <p><strong>Centro:</strong> Institut Thos i Codina</p>
+                    <p><strong>Nota media:</strong> 7,7</p>
+                    <p><strong>Modalidad:</strong> Formación Profesional de Grado Medio</p>
+                </div>
+
+                <h4>Módulos y cursos realizados</h4>
+                <div class="modulos-grid">
+                    <ul>
+                        <li>Montaje y mantenimiento de equipos</li>
+                        <li>Sistemas operativos monopuesto</li>
+                        <li>Aplicaciones ofimáticas</li>
+                        <li>Redes locales</li>
+                        <li>Seguridad informática</li>
+                    </ul>
+                    <ul>
+                        <li>Servicios en red</li>
+                        <li>Sistemas operativos en red</li>
+                        <li>Aplicaciones web</li>
+                        <li>Empresa e iniciativa emprendedora</li>
+                        <li>Formación en centros de trabajo</li>
+                    </ul>
+                </div>
+
+                <h4>Competencias destacadas</h4>
+                <p class="descripcion">
+                    Montaje, diagnóstico y reparación de equipos, instalación de sistemas operativos,
+                    configuración de redes locales, soporte técnico, mantenimiento preventivo y resolución
+                    de incidencias informáticas. También he trabajado con Active Directory, Samba y entornos
+                    de red, desarrollando una base sólida en administración y configuración de redes.
+                </p>
+            </article>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

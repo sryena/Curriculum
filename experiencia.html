@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curriculum - Experiencia Laboral</title>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+</head>
+<body class="fade">
+    <header>
+        <div class="menu-btn" onclick="toggleMenu()">☰</div>
+        <h1>Experiencia Laboral</h1>
+        <button id="boton-tema">Tema</button>
+    </header>
+
+    <nav id="sidebar">
+        <div class="logo-favicon">
+            <img src="favicon.png" alt="Mi Logo">
+        </div>
+        <div class="close-btn" onclick="toggleMenu()">×</div>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="mis-datos.html">Mis Datos</a></li>
+            <li><a href="experiencia.html">Experiencia Laboral</a></li>
+            <li><a href="permisos.html">Permisos y Títulos</a></li>
+            <li><a href="habilidades.html">Habilidades</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="seccion-cv experiencia">
+            <div class="seccion-cabecera">
+                <h2>Experiencia laboral</h2>
+                <p>Prácticas y experiencia aplicada en soporte técnico, mantenimiento informático y redes.</p>
+            </div>
+
+            <article class="cv-card destacado">
+                <div class="titulo-header">
+                    <div>
+                        <span class="etiqueta">Prácticas profesionales</span>
+                        <h3>Satmatic</h3>
+                    </div>
+                    <p class="periodo">Mayo 2025 - Marzo 2026</p>
+                </div>
+
+                <div class="titulo-meta">
+                    <p><strong>Puesto:</strong> Becario</p>
+                    <p><strong>Área:</strong> Soporte técnico</p>
+                    <p><strong>Entorno:</strong> Equipos, sistemas y redes</p>
+                </div>
+
+                <h4>Funciones principales</h4>
+                <p class="descripcion">
+                    Prácticas en mantenimiento y reparación de equipos informáticos. Montaje de ordenadores,
+                    instalación de sistemas operativos, configuración de redes locales y soporte técnico a usuarios.
+                </p>
+            </article>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curriculum - Inicio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+</head>
+<body class="fade">
+    <header>
+        <div class="menu-btn" onclick="toggleMenu()">☰</div>
+        <h1>Carta de Presentación</h1>
+        <button id="boton-tema">Tema</button>
+    </header>
+
+    <nav id="sidebar">
+        <div class="logo-favicon">
+            <img src="favicon.png" alt="Mi Logo">
+        </div>
+        <div class="close-btn" onclick="toggleMenu()">×</div>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="mis-datos.html">Mis Datos</a></li>
+            <li><a href="experiencia.html">Experiencia Laboral</a></li>
+            <li><a href="permisos.html">Permisos y Títulos</a></li>
+            <li><a href="habilidades.html">Habilidades</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="seccion-cv inicio">
+            <article class="cv-card destacado tarjeta-presentacion">
+                <div class="tarjeta-foto">
+                    <img src="imagenes/yo.png" alt="Foto de Yenai Lorente Casado">
+                </div>
+
+                <div class="tarjeta-info">
+                    <span class="etiqueta">Técnico microinformático</span>
+                    <h2>Yenai Lorente Casado</h2>
+                    <p>
+                        Soy titulado en <strong>Sistemas Microinformáticos y Redes</strong>, nacido y residente en
+                        <strong>Cataluña, España</strong>. Desde muy pequeño he sentido una gran curiosidad por la
+                        tecnología y la informática, lo que me ha llevado a aprender y explorar continuamente nuevas
+                        herramientas del sector.
+                    </p>
+                    <p>
+                        Me considero una persona autodidacta, responsable y con ganas de seguir creciendo en el ámbito
+                        técnico y profesional. Me apasiona resolver problemas, montar y configurar equipos, trabajar con
+                        redes y mantenerme al día con la evolución del mundo digital.
+                    </p>
+                </div>
+            </article>
+
+            <div class="titulo-meta resumen-grid">
+                <p><strong>Especialidad:</strong> Sistemas Microinformáticos y Redes</p>
+                <p><strong>Ubicación:</strong> Cataluña, España</p>
+                <p><strong>Email:</strong> <a href="mailto:sryenalc@gmail.com">sryenalc@gmail.com</a></p>
+                <p><strong>Teléfono:</strong> 722 409 665</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
