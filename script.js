@@ -68,11 +68,18 @@ const originales = pista.children.length;
 pista.innerHTML += pista.innerHTML;
 [...pista.children].forEach((s, k) => { if (k >= originales) s.setAttribute("aria-hidden", "true"); });
 
-// Aparición al bajar
+// Aparición al bajar. Lo que empieza recortado (.revela) no cuenta como visible para Chrome,
+// así que se vigila su sección y, cuando entra, se descubre todo lo que tiene dentro.
 const observador = new IntersectionObserver(entradas => {
-  for (const e of entradas) if (e.isIntersecting) { e.target.classList.add("visto"); observador.unobserve(e.target); }
+  for (const e of entradas) if (e.isIntersecting) {
+    e.target.classList.add("visto");
+    e.target.querySelectorAll(".revela").forEach(r => r.classList.add("visto"));
+    observador.unobserve(e.target);
+  }
 }, { threshold: 0.15 });
-document.querySelectorAll(".revela, .hito, .proyecto").forEach(el => reducido ? el.classList.add("visto") : observador.observe(el));
+const vigilados = new Set(document.querySelectorAll(".hito, .proyecto"));
+document.querySelectorAll(".revela").forEach(r => vigilados.add(r.closest("section, .fila") || r.parentElement));
+vigilados.forEach(el => reducido ? (el.classList.add("visto"), el.querySelectorAll(".revela").forEach(r => r.classList.add("visto"))) : observador.observe(el));
 
 // Notas que cuentan hacia arriba
 const contador = new IntersectionObserver(entradas => {
