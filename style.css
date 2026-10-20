@@ -48,7 +48,7 @@ img { max-width: 100%; display: block; }
 
 /* Rejilla de fondo: solo los dos bordes laterales del contenido */
 .reticula { position: fixed; inset: 0; pointer-events: none; z-index: 0; display: flex; justify-content: center; }
-.reticula div { width: min(var(--ancho), 100% - 112px); border-inline: 1px solid var(--linea);
+.reticula div { width: min(var(--ancho), 100% - 176px); border-inline: 1px solid var(--linea);
   transform-origin: top; animation: trazar 1.2s cubic-bezier(.6,0,.2,1) both; }
 @keyframes trazar { from { transform: scaleY(0); } }
 
@@ -56,8 +56,6 @@ img { max-width: 100%; display: block; }
 .cabecera { position: sticky; top: 0; z-index: 50; background: color-mix(in srgb, var(--fondo) 88%, transparent);
   backdrop-filter: blur(10px); border-bottom: 1px solid var(--linea); transition: background-color .5s; }
 .cabecera-in { padding: 0 16px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; height: 76px; }
-.cabecera-in > .hamburguesa + .marca { margin-left: 14px; }
-.izquierda { display: flex; align-items: center; }
 .marca { display: flex; align-items: center; gap: 12px; color: var(--tinta); text-decoration: none; }
 .marca img { width: 40px; height: 40px; border-radius: 10px; }
 .marca span { display: grid; line-height: 1.05; font-size: .8rem; }
@@ -84,8 +82,8 @@ img { max-width: 100%; display: block; }
 .tema .astro { r: 5.5px; transition: r .6s; } [data-tema="oscuro"] .tema .astro { r: 9px; }
 .tema .sombra { transform: translate(14px, -6px); transition: transform .6s; } [data-tema="oscuro"] .tema .sombra { transform: translate(6px, -2px); }
 
-/* Hamburguesa: tres barras que se convierten en X, en la esquina izquierda de la cabecera */
-.hamburguesa { position: relative; flex: none; width: 48px; height: 48px; background: var(--celda); border: 1px solid var(--linea);
+/* Hamburguesa: casilla fija bajo la cabecera, en la esquina izquierda; se queda encima del panel */
+.hamburguesa { position: fixed; top: 93px; left: 16px; z-index: 47; flex: none; width: 48px; height: 48px; background: var(--celda); border: 1px solid var(--linea);
   cursor: pointer; display: grid; place-items: center; transition: background-color .3s, border-color .3s; }
 .hamburguesa:hover { border-color: var(--morado); }
 .hamburguesa span { position: absolute; width: 22px; height: 2px; background: var(--tinta);
@@ -104,7 +102,7 @@ img { max-width: 100%; display: block; }
   opacity: 0; pointer-events: none; transition: opacity .4s; }
 .velo.abierto { opacity: 1; pointer-events: auto; }
 .menu { position: fixed; top: 77px; left: 0; bottom: 0; z-index: 45; width: min(320px, 86vw); background: var(--celda);
-  border-right: 1px solid var(--linea); padding: 22px 0 28px; display: flex; flex-direction: column; justify-content: space-between;
+  border-right: 1px solid var(--linea); padding: 80px 0 28px; display: flex; flex-direction: column; justify-content: space-between;
   transform: translateX(-101%); visibility: hidden;
   transition: transform .55s cubic-bezier(.7,0,.2,1), visibility 0s .55s, background-color .5s; }
 .menu.abierto { transform: none; visibility: visible; transition: transform .55s cubic-bezier(.7,0,.2,1), visibility 0s, background-color .5s; }
@@ -130,7 +128,7 @@ img { max-width: 100%; display: block; }
 .social svg { width: 20px; height: 20px; }
 
 /* Estructura */
-main, .pie { position: relative; z-index: 1; width: min(var(--ancho), 100% - 112px); margin-inline: auto; }
+main, .pie { position: relative; z-index: 1; width: min(var(--ancho), 100% - 176px); margin-inline: auto; }
 .fila { display: grid; grid-template-columns: repeat(4, 1fr); border-bottom: 1px solid var(--linea); }
 .celda { padding: 36px 32px; border-right: 1px solid var(--linea); min-width: 0; }
 .celda:last-child { border-right: 0; }
@@ -314,6 +312,8 @@ main, .pie { position: relative; z-index: 1; width: min(var(--ancho), 100% - 112
   .reticula div, main, .pie { width: calc(100% - 32px); }
   .pie { padding-inline: 8px; }
   .social { display: none; }
+  .portada { padding-top: 84px; }
+  .portada .cuadro.a { display: none; }
   .fila { grid-template-columns: 1fr; }
   .celda, .foto, .seccion-titulo, .seccion-cuerpo { grid-column: auto; border-right: 0; border-bottom: 1px solid var(--linea); }
   .seccion-cuerpo { border-bottom: 0; }
