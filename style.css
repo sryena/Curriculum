@@ -265,6 +265,8 @@ main, .pie { position: relative; z-index: 1; width: min(var(--ancho), 100% - 112
   transform: scale(0); transition: transform .5s cubic-bezier(.2,1.4,.4,1); transition-delay: calc(var(--i) * .07s); }
 .paleta span:first-child { color: #654027; }
 .proyecto.visto .paleta span { transform: none; }
+.enlaces-proyecto { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 24px; margin-top: 26px; }
+.enlace-flecha { font-weight: 700; font-size: .9rem; }
 
 /* Datos y contacto */
 .ficha { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 0; }
