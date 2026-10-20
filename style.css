@@ -227,6 +227,16 @@ main, .pie { position: relative; z-index: 1; width: min(var(--ancho), 100% - 176
 /* Experiencia */
 .trabajo { padding: 36px 32px; }
 .trabajo + .trabajo { border-top: 1px solid var(--linea); }
+.funciones-titulo { margin: 24px 0 0; font: 700 .8rem var(--mono); text-transform: uppercase; letter-spacing: .08em; color: var(--suave); }
+.funciones { list-style: none; margin: 10px 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+  border: 1px solid var(--linea); }
+.funciones li { display: flex; gap: 12px; align-items: baseline; padding: 11px 14px; border-bottom: 1px solid var(--linea);
+  border-right: 1px solid var(--linea); font-size: .92rem; transition: background-color .25s; }
+.funciones li:nth-child(2n) { border-right: 0; }
+.funciones li:nth-last-child(-n + 2):nth-child(odd), .funciones li:last-child { border-bottom: 0; }
+.funciones li::before { content: ""; flex: none; width: 7px; height: 7px; background: var(--morado); transform: translateY(-1px); }
+.funciones li:hover { background: var(--morado-claro); }
+.funciones li:last-child:nth-child(odd) { grid-column: 1 / -1; border-right: 0; }
 .trabajo h3 { margin: 6px 0 0; font: 800 clamp(2rem, 4vw, 3.2rem)/1 var(--display); text-transform: uppercase; }
 .trabajo p { max-width: 70ch; margin: 18px 0 0; }
 
@@ -323,6 +333,7 @@ main, .pie { position: relative; z-index: 1; width: min(var(--ancho), 100% - 176
   .datos, .ficha, .personales, .proyecto, .modulos ul { grid-template-columns: 1fr; }
   .datos div, .ficha div, .personal, .proyecto > div:first-child { border-right: 0; border-bottom: 1px solid var(--linea); }
   .modulos li { border-right: 0; }
+  .funciones { grid-template-columns: 1fr; } .funciones li { border-right: 0; } .funciones li:nth-last-child(2):nth-child(odd) { border-bottom: 1px solid var(--linea); }
   .hito { padding-left: 60px; } .tiempo::before, .tiempo-relleno { left: 24px; } .hito::before { left: 18px; }
   .acciones-cabecera .boton { display: none; }
 }
