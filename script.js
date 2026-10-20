@@ -15,21 +15,20 @@ botonTema.addEventListener("click", () => {
   try { localStorage.setItem("tema", nuevo); } catch (e) {}
 });
 
-// Menú de la hamburguesa: se abre en círculo desde el propio botón
+// Menú de la hamburguesa: panel lateral a la izquierda
 const hamburguesa = document.getElementById("hamburguesa");
 const menu = document.getElementById("menu");
+const velo = document.getElementById("velo");
 function toggleMenu(abrir = hamburguesa.getAttribute("aria-expanded") !== "true") {
-  const r = hamburguesa.getBoundingClientRect();
-  menu.style.setProperty("--origen-x", r.left + r.width / 2 + "px");
-  menu.style.setProperty("--origen-y", r.top + r.height / 2 + "px");
   hamburguesa.setAttribute("aria-expanded", abrir);
   hamburguesa.setAttribute("aria-label", abrir ? "Cerrar el menú" : "Abrir el menú");
   menu.classList.toggle("abierto", abrir);
+  velo.classList.toggle("abierto", abrir);
   menu.inert = !abrir;
-  document.body.style.overflow = abrir ? "hidden" : "";
-  if (abrir) setTimeout(() => menu.querySelector("a").focus({ preventScroll: true }), 300);
+  if (abrir) setTimeout(() => menu.querySelector("a").focus({ preventScroll: true }), 200);
 }
 hamburguesa.addEventListener("click", () => toggleMenu());
+velo.addEventListener("click", () => toggleMenu(false));
 menu.querySelectorAll("a").forEach(a => a.addEventListener("click", () => toggleMenu(false)));
 document.addEventListener("keydown", e => {
   if (e.key === "Escape" && menu.classList.contains("abierto")) { toggleMenu(false); hamburguesa.focus(); }
@@ -77,7 +76,7 @@ const observador = new IntersectionObserver(entradas => {
     observador.unobserve(e.target);
   }
 }, { threshold: 0.15 });
-const vigilados = new Set(document.querySelectorAll(".hito, .proyecto"));
+const vigilados = new Set(document.querySelectorAll(".hito, .proyecto, .niveles"));
 document.querySelectorAll(".revela").forEach(r => vigilados.add(r.closest("section, .fila") || r.parentElement));
 vigilados.forEach(el => reducido ? (el.classList.add("visto"), el.querySelectorAll(".revela").forEach(r => r.classList.add("visto"))) : observador.observe(el));
 
@@ -112,7 +111,7 @@ addEventListener("scroll", alBajar, { passive: true });
 alBajar();
 
 // Enlace activo del menú de arriba según la sección
-const enlaces = [...document.querySelectorAll(".nav-escritorio a")];
+const enlaces = [...document.querySelectorAll(".nav-escritorio a, .menu a:not(.boton)")];
 const vigia = new IntersectionObserver(entradas => {
   for (const e of entradas) if (e.isIntersecting)
     enlaces.forEach(a => a.setAttribute("aria-current", a.getAttribute("href") === "#" + e.target.id));

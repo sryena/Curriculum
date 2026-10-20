@@ -22,14 +22,19 @@
 </head>
 <body>
     <div class="progreso" aria-hidden="true"></div>
-    <div class="reticula" aria-hidden="true"><div><span></span><span></span><span></span><span></span></div></div>
+    <div class="reticula" aria-hidden="true"><div></div></div>
 
     <header class="cabecera">
         <div class="cabecera-in">
-            <a class="marca" href="#inicio">
-                <img src="favicon.png" alt="">
-                <span>Yenai<strong>LORENTE</strong></span>
-            </a>
+            <div class="izquierda">
+                <button class="hamburguesa" id="hamburguesa" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir el menú">
+                    <span></span><span></span><span></span>
+                </button>
+                <a class="marca" href="#inicio">
+                    <img src="favicon.png" alt="">
+                    <span>Yenai<strong>LORENTE</strong></span>
+                </a>
+            </div>
             <nav class="nav-escritorio" aria-label="Secciones">
                 <a href="#sobre-mi">Sobre mí</a>
                 <a href="#formacion">Formación</a>
@@ -53,21 +58,18 @@
         </div>
     </header>
 
-    <button class="hamburguesa" id="hamburguesa" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir el menú">
-        <span></span><span></span><span></span>
-    </button>
-
+    <div class="velo" id="velo" aria-hidden="true"></div>
     <nav class="menu" id="menu" aria-label="Menú">
-        <ol>
-            <li><a href="#inicio" style="--i:0">Inicio <small>de vuelta arriba</small></a></li>
+        <ul>
+            <li><a href="#inicio" style="--i:0">Inicio</a></li>
             <li><a href="#sobre-mi" style="--i:1">Sobre mí</a></li>
-            <li><a href="#formacion" style="--i:2">Formación <small>ASIX, SMR y ESO</small></a></li>
+            <li><a href="#formacion" style="--i:2">Formación</a></li>
             <li><a href="#experiencia" style="--i:3">Experiencia</a></li>
             <li><a href="#habilidades" style="--i:4">Habilidades</a></li>
             <li><a href="#proyecto" style="--i:5">Proyecto</a></li>
-            <li><a href="#datos" style="--i:6">Datos y contacto</a></li>
-        </ol>
-        <p class="menu-pie">Pulsa Esc para cerrar</p>
+            <li><a href="#datos" style="--i:6">Datos</a></li>
+        </ul>
+        <a class="boton menu-boton" href="mailto:sryenalc@gmail.com">ESCRÍBEME</a>
     </nav>
 
     <aside class="social" aria-label="Contacto">
@@ -227,20 +229,40 @@
                 <p>Lo que domino y lo que estoy aprendiendo ahora en ASIX.</p>
             </div>
             <div class="celda seccion-cuerpo">
-                <h3 class="subtitulo">Técnicas <small>Pasa el ratón por encima</small></h3>
-                <div class="tecnicas">
-                    <div class="tecnica"><strong>Linux (Fedora)</strong><span class="nivel">Domino</span></div>
-                    <div class="tecnica"><strong>Windows</strong><span class="nivel">Domino</span></div>
-                    <div class="tecnica"><strong>Redes locales</strong><span class="nivel">Domino</span></div>
-                    <div class="tecnica"><strong>Active Directory</strong><span class="nivel">Domino</span></div>
-                    <div class="tecnica"><strong>Samba</strong><span class="nivel">Domino</span></div>
-                    <div class="tecnica"><strong>VirtualBox</strong><span class="nivel">Domino</span></div>
-                    <div class="tecnica"><strong>WordPress y WooCommerce</strong><span class="nivel">Domino</span></div>
-                    <div class="tecnica"><strong>Git</strong><span class="nivel">Domino</span></div>
-                    <div class="tecnica aprendiendo"><strong>Python</strong><span class="nivel">Aprendiendo</span></div>
-                    <div class="tecnica aprendiendo"><strong>SQL y bases de datos</strong><span class="nivel">Aprendiendo</span></div>
-                    <div class="tecnica aprendiendo"><strong>HTML y CSS</strong><span class="nivel">Aprendiendo</span></div>
-                    <div class="tecnica"><strong>Montaje y reparación de equipos</strong><span class="nivel">Domino</span></div>
+                <h3 class="subtitulo">Técnicas <small>De más a menos experiencia</small></h3>
+                <div class="niveles">
+                    <div class="nivel-col" style="--barras:4">
+                        <div class="nivel-cab"><strong>Semi-profesional</strong><span class="medidor" aria-hidden="true"><i></i><i></i><i></i><i></i></span></div>
+                        <ul>
+                            <li class="tecnica">Montaje y reparación de equipos</li>
+                            <li class="tecnica">Windows</li>
+                            <li class="tecnica">Linux (Fedora)</li>
+                        </ul>
+                    </div>
+                    <div class="nivel-col" style="--barras:3">
+                        <div class="nivel-cab"><strong>Experimentado</strong><span class="medidor" aria-hidden="true"><i></i><i></i><i></i><i></i></span></div>
+                        <ul>
+                            <li class="tecnica">VirtualBox</li>
+                            <li class="tecnica">Redes y redes locales</li>
+                            <li class="tecnica">Git</li>
+                        </ul>
+                    </div>
+                    <div class="nivel-col" style="--barras:2">
+                        <div class="nivel-cab"><strong>Novato</strong><span class="medidor" aria-hidden="true"><i></i><i></i><i></i><i></i></span></div>
+                        <ul>
+                            <li class="tecnica">Samba</li>
+                            <li class="tecnica">Active Directory</li>
+                            <li class="tecnica">WordPress</li>
+                        </ul>
+                    </div>
+                    <div class="nivel-col aprendiendo" style="--barras:1">
+                        <div class="nivel-cab"><strong>Aprendiendo</strong><span class="medidor" aria-hidden="true"><i></i><i></i><i></i><i></i></span></div>
+                        <ul>
+                            <li class="tecnica">Python</li>
+                            <li class="tecnica">SQL y bases de datos</li>
+                            <li class="tecnica">HTML y CSS</li>
+                        </ul>
+                    </div>
                 </div>
                 <h3 class="subtitulo">Personales</h3>
                 <div class="personales">
