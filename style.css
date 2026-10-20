@@ -237,6 +237,15 @@ main, .pie { position: relative; z-index: 1; width: min(var(--ancho), 100% - 176
 .funciones li::before { content: ""; flex: none; width: 7px; height: 7px; background: var(--morado); transform: translateY(-1px); }
 .funciones li:hover { background: var(--morado-claro); }
 .funciones li:last-child:nth-child(odd) { grid-column: 1 / -1; border-right: 0; }
+.empresa { color: var(--suave); margin: 10px 0 0 !important; }
+.datos .unidad { margin: 0; font-size: .8rem; color: var(--suave); font-weight: 400; }
+.herramientas { list-style: none; margin: 10px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.herramientas li { padding: 6px 12px; border: 1px solid var(--linea); background: var(--celda); font-size: .85rem;
+  transition: border-color .25s, color .25s, transform .25s; }
+.herramientas li:hover { border-color: var(--morado); color: var(--morado); transform: translateY(-2px); }
+.orgullo { position: relative; margin: 26px 0 0; padding: 22px 24px 22px 28px; background: var(--morado-claro); border-left: 4px solid var(--morado); }
+.orgullo .etiqueta { color: var(--morado); font-weight: 700; }
+.orgullo p { margin: 8px 0 0 !important; font-size: 1rem; max-width: 70ch; }
 .trabajo h3 { margin: 6px 0 0; font: 800 clamp(2rem, 4vw, 3.2rem)/1 var(--display); text-transform: uppercase; }
 .trabajo p { max-width: 70ch; margin: 18px 0 0; }
 
