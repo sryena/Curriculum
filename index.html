@@ -3,64 +3,310 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Curriculum - Inicio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <title>Yenai Lorente Casado — Técnico en sistemas y redes</title>
+    <meta name="description" content="Currículum de Yenai Lorente Casado: técnico en Sistemas Microinformáticos y Redes, estudiando ASIX.">
     <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Tektur:wght@500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        // Tema antes de pintar, para que no parpadee: el guardado o, si no hay, el del sistema
+        (function () {
+            var t = null;
+            try { t = localStorage.getItem("tema"); } catch (e) {}
+            if (!t) t = matchMedia("(prefers-color-scheme: dark)").matches ? "oscuro" : "claro";
+            document.documentElement.setAttribute("data-tema", t);
+        })();
+    </script>
 </head>
-<body class="fade">
-    <header>
-        <div class="menu-btn" onclick="toggleMenu()">☰</div>
-        <h1>Carta de Presentación</h1>
-        <button id="boton-tema">Tema</button>
+<body>
+    <div class="progreso" aria-hidden="true"></div>
+    <div class="reticula" aria-hidden="true"><div><span></span><span></span><span></span><span></span></div></div>
+
+    <header class="cabecera">
+        <div class="cabecera-in">
+            <a class="marca" href="#inicio">
+                <img src="favicon.png" alt="">
+                <span>Yenai<strong>LORENTE</strong></span>
+            </a>
+            <nav class="nav-escritorio" aria-label="Secciones">
+                <a href="#sobre-mi">Sobre mí</a>
+                <a href="#formacion">Formación</a>
+                <a href="#experiencia">Experiencia</a>
+                <a href="#habilidades">Habilidades</a>
+                <a href="#proyecto">Proyecto</a>
+                <a href="#datos">Datos</a>
+            </nav>
+            <div class="acciones-cabecera">
+                <button class="tema" id="boton-tema" type="button" aria-label="Cambiar a tema oscuro">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <mask id="luna"><rect width="24" height="24" fill="#fff"/><circle class="sombra" cx="12" cy="8" r="7" fill="#000"/></mask>
+                        <circle class="astro" cx="12" cy="12" r="5.5" fill="currentColor" mask="url(#luna)"/>
+                        <g class="rayos" stroke="currentColor" stroke-width="2" stroke-linecap="square">
+                            <path d="M12 1v2M12 21v2M1 12h2M21 12h2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/>
+                        </g>
+                    </svg>
+                </button>
+                <a class="boton" href="mailto:sryenalc@gmail.com">ESCRÍBEME</a>
+            </div>
+        </div>
     </header>
 
-    <nav id="sidebar">
-        <div class="logo-favicon">
-            <img src="favicon.png" alt="Mi Logo">
-        </div>
-        <div class="close-btn" onclick="toggleMenu()">×</div>
-        <ul>
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="mis-datos.html">Mis Datos</a></li>
-            <li><a href="experiencia.html">Experiencia Laboral</a></li>
-            <li><a href="permisos.html">Permisos y Títulos</a></li>
-            <li><a href="habilidades.html">Habilidades</a></li>
-        </ul>
+    <button class="hamburguesa" id="hamburguesa" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir el menú">
+        <span></span><span></span><span></span>
+    </button>
+
+    <nav class="menu" id="menu" aria-label="Menú">
+        <ol>
+            <li><a href="#inicio" style="--i:0">Inicio <small>de vuelta arriba</small></a></li>
+            <li><a href="#sobre-mi" style="--i:1">Sobre mí</a></li>
+            <li><a href="#formacion" style="--i:2">Formación <small>ASIX, SMR y ESO</small></a></li>
+            <li><a href="#experiencia" style="--i:3">Experiencia</a></li>
+            <li><a href="#habilidades" style="--i:4">Habilidades</a></li>
+            <li><a href="#proyecto" style="--i:5">Proyecto</a></li>
+            <li><a href="#datos" style="--i:6">Datos y contacto</a></li>
+        </ol>
+        <p class="menu-pie">Pulsa Esc para cerrar</p>
     </nav>
 
-    <main>
-        <section class="seccion-cv inicio">
-            <article class="cv-card destacado tarjeta-presentacion">
-                <div class="tarjeta-foto">
-                    <img src="imagenes/yo.png" alt="Foto de Yenai Lorente Casado">
-                </div>
+    <aside class="social" aria-label="Contacto">
+        <a href="https://github.com/sryena" aria-label="GitHub de Yenai">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.83 1.19 3.09 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>
+        </a>
+        <a href="mailto:sryenalc@gmail.com" aria-label="Escribir un correo a Yenai">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 5h18v14H3z"/><path d="m3 6 9 7 9-7"/></svg>
+        </a>
+    </aside>
 
-                <div class="tarjeta-info">
-                    <span class="etiqueta">Técnico microinformático</span>
-                    <h2>Yenai Lorente Casado</h2>
-                    <p>
-                        Soy titulado en <strong>Sistemas Microinformáticos y Redes</strong>, nacido y residente en
-                        <strong>Cataluña, España</strong>. Desde muy pequeño he sentido una gran curiosidad por la
-                        tecnología y la informática, lo que me ha llevado a aprender y explorar continuamente nuevas
-                        herramientas del sector.
-                    </p>
-                    <p>
-                        Me considero una persona autodidacta, responsable y con ganas de seguir creciendo en el ámbito
-                        técnico y profesional. Me apasiona resolver problemas, montar y configurar equipos, trabajar con
-                        redes y mantenerme al día con la evolución del mundo digital.
-                    </p>
-                </div>
-            </article>
+    <main id="inicio">
+        <section class="portada" aria-labelledby="nombre">
+            <span class="cuadro a"></span><span class="cuadro b"></span><span class="cuadro c"></span><span class="cuadro d"></span>
+            <h1 class="nombre" id="nombre" aria-label="Yenai Lorente Casado">
+                <span class="linea">Yenai</span>
+                <span class="linea">Lorente</span>
+            </h1>
+            <p class="lema-portada"><span>Técnico en</span><span class="escritura" id="escritura" aria-live="off">sistemas</span></p>
+        </section>
 
-            <div class="titulo-meta resumen-grid">
-                <p><strong>Especialidad:</strong> Sistemas Microinformáticos y Redes</p>
-                <p><strong>Ubicación:</strong> Cataluña, España</p>
-                <p><strong>Email:</strong> <a href="mailto:sryenalc@gmail.com">sryenalc@gmail.com</a></p>
-                <p><strong>Teléfono:</strong> 722 409 665</p>
+        <div class="fila presenta" id="sobre-mi-intro">
+            <div class="celda">
+                <p>Titulado en Sistemas Microinformáticos y Redes y estudiando el ciclo superior de ASIX. Me apasiona resolver problemas, montar y configurar equipos y trabajar con redes.</p>
+                <a class="boton" href="#formacion">VER MI FORMACIÓN</a>
+            </div>
+            <div class="celda foto">
+                <div class="marco">
+                    <img src="imagenes/yo.jpg" alt="Foto de Yenai Lorente Casado" width="600" height="800">
+                    <span class="esquina a"></span><span class="esquina b"></span><span class="esquina c"></span><span class="esquina d"></span>
+                </div>
+            </div>
+            <div class="celda ahora">
+                <span class="etiqueta"><span class="punto"></span>Ahora mismo</span>
+                <h2>1.º de ASIX</h2>
+                <p>Administración de Sistemas Informáticos en Red en el Institut Thos i Codina, curso 2026-2027.</p>
+            </div>
+        </div>
+
+        <div class="cinta" aria-label="Tecnologías con las que trabajo">
+            <div class="cinta-pista">
+                <span>Linux</span><span>Windows</span><span>Redes locales</span><span>Active Directory</span><span>Samba</span>
+                <span>VirtualBox</span><span>WordPress</span><span>Git</span><span>Python</span><span>SQL</span><span>HTML y CSS</span>
+            </div>
+        </div>
+
+        <section class="fila seccion" id="sobre-mi" aria-labelledby="t-sobre">
+            <div class="celda seccion-titulo">
+                <h2 id="t-sobre">Sobre mí</h2>
+            </div>
+            <div class="celda seccion-cuerpo revela" style="padding:36px 32px">
+                <p style="margin:0 0 16px;max-width:70ch">Soy titulado en <strong>Sistemas Microinformáticos y Redes</strong>, nacido y residente en <strong>Cataluña, España</strong>. Desde muy pequeño he sentido una gran curiosidad por la tecnología y la informática, lo que me ha llevado a aprender y explorar continuamente nuevas herramientas del sector.</p>
+                <p style="margin:0;max-width:70ch">Me considero una persona autodidacta, responsable y con ganas de seguir creciendo en el ámbito técnico y profesional. Me apasiona resolver problemas, montar y configurar equipos, trabajar con redes y mantenerme al día con la evolución del mundo digital.</p>
+            </div>
+        </section>
+
+        <section class="fila seccion" id="formacion" aria-labelledby="t-formacion">
+            <div class="celda seccion-titulo">
+                <h2 id="t-formacion">Formación</h2>
+                <p>De lo más reciente a lo más antiguo, con mis notas.</p>
+            </div>
+            <div class="celda seccion-cuerpo">
+                <div class="tiempo">
+                    <span class="tiempo-relleno" aria-hidden="true"></span>
+
+                    <article class="hito">
+                        <div class="hito-cab">
+                            <span class="estado"><span class="punto"></span>En curso</span>
+                            <span class="periodo">2026 – actualidad</span>
+                        </div>
+                        <h3>Grado Superior en Administración de Sistemas Informáticos en Red (ASIX)</h3>
+                        <dl class="datos">
+                            <div><dt>Centro</dt><dd>Institut Thos i Codina</dd></div>
+                            <div><dt>Curso</dt><dd>1.º, 2026-2027</dd></div>
+                            <div><dt>Modalidad</dt><dd>Formación Profesional de Grado Superior</dd></div>
+                        </dl>
+                        <button class="desplegar" type="button" aria-expanded="false" aria-controls="mod-asix"><i></i><span>Ver los módulos</span></button>
+                        <div class="modulos" id="mod-asix"><div><ul>
+                            <li>Implantación de sistemas operativos</li>
+                            <li>Gestión de bases de datos</li>
+                            <li>Programación básica (Python)</li>
+                            <li>Lenguajes de marcas</li>
+                            <li>Fundamentos de hardware</li>
+                            <li>Implantación de aplicaciones web</li>
+                            <li>Digitalización</li>
+                            <li>Inglés</li>
+                        </ul></div></div>
+                    </article>
+
+                    <article class="hito">
+                        <div class="hito-cab">
+                            <span class="estado">Título finalizado</span>
+                            <span class="periodo">2024 – 2026</span>
+                        </div>
+                        <h3>Grado Medio en Sistemas Microinformáticos y Redes</h3>
+                        <dl class="datos">
+                            <div><dt>Centro</dt><dd>Institut Thos i Codina</dd></div>
+                            <div><dt>Nota media</dt><dd class="nota" data-nota="7,7">7,7</dd></div>
+                            <div><dt>Modalidad</dt><dd>Formación Profesional de Grado Medio</dd></div>
+                        </dl>
+                        <p>Montaje, diagnóstico y reparación de equipos, instalación de sistemas operativos, configuración de redes locales, soporte técnico, mantenimiento preventivo y resolución de incidencias informáticas. También he trabajado con Active Directory, Samba y entornos de red, desarrollando una base sólida en administración y configuración de redes.</p>
+                        <button class="desplegar" type="button" aria-expanded="false" aria-controls="mod-smr"><i></i><span>Ver los módulos</span></button>
+                        <div class="modulos" id="mod-smr"><div><ul>
+                            <li>Montaje y mantenimiento de equipos</li>
+                            <li>Servicios en red</li>
+                            <li>Sistemas operativos monopuesto</li>
+                            <li>Sistemas operativos en red</li>
+                            <li>Aplicaciones ofimáticas</li>
+                            <li>Aplicaciones web</li>
+                            <li>Redes locales</li>
+                            <li>Empresa e iniciativa emprendedora</li>
+                            <li>Seguridad informática</li>
+                            <li>Formación en centros de trabajo</li>
+                        </ul></div></div>
+                    </article>
+
+                    <article class="hito">
+                        <div class="hito-cab">
+                            <span class="estado">Titulación obtenida</span>
+                            <span class="periodo">2020 – 2024</span>
+                        </div>
+                        <h3>Educación Secundaria Obligatoria (ESO)</h3>
+                        <dl class="datos">
+                            <div><dt>Centro</dt><dd>Institut Puig i Cadafalch</dd></div>
+                            <div><dt>Nota media</dt><dd class="nota" data-nota="5,26">5,26</dd></div>
+                            <div><dt>Estado</dt><dd>Titulación obtenida</dd></div>
+                        </dl>
+                        <p>Base académica general que me permitió continuar mi formación en el área tecnológica, reforzando competencias como organización, responsabilidad, comunicación y aprendizaje constante.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="fila seccion" id="experiencia" aria-labelledby="t-experiencia">
+            <div class="celda seccion-titulo">
+                <h2 id="t-experiencia">Experiencia</h2>
+                <p>Prácticas en soporte técnico, mantenimiento y redes.</p>
+            </div>
+            <div class="celda seccion-cuerpo trabajo revela">
+                <div class="hito-cab">
+                    <span class="estado">Prácticas profesionales</span>
+                    <span class="periodo">Mayo 2025 – Marzo 2026</span>
+                </div>
+                <h3>Satmatic</h3>
+                <dl class="datos">
+                    <div><dt>Puesto</dt><dd>Becario</dd></div>
+                    <div><dt>Área</dt><dd>Soporte técnico</dd></div>
+                    <div><dt>Entorno</dt><dd>Equipos, sistemas y redes</dd></div>
+                </dl>
+                <p>Prácticas en mantenimiento y reparación de equipos informáticos. Montaje de ordenadores, instalación de sistemas operativos, configuración de redes locales y soporte técnico a usuarios.</p>
+            </div>
+        </section>
+
+        <section class="fila seccion" id="habilidades" aria-labelledby="t-habilidades">
+            <div class="celda seccion-titulo">
+                <h2 id="t-habilidades">Habilidades</h2>
+                <p>Lo que domino y lo que estoy aprendiendo ahora en ASIX.</p>
+            </div>
+            <div class="celda seccion-cuerpo">
+                <h3 class="subtitulo">Técnicas <small>Pasa el ratón por encima</small></h3>
+                <div class="tecnicas">
+                    <div class="tecnica"><strong>Linux (Fedora)</strong><span class="nivel">Domino</span></div>
+                    <div class="tecnica"><strong>Windows</strong><span class="nivel">Domino</span></div>
+                    <div class="tecnica"><strong>Redes locales</strong><span class="nivel">Domino</span></div>
+                    <div class="tecnica"><strong>Active Directory</strong><span class="nivel">Domino</span></div>
+                    <div class="tecnica"><strong>Samba</strong><span class="nivel">Domino</span></div>
+                    <div class="tecnica"><strong>VirtualBox</strong><span class="nivel">Domino</span></div>
+                    <div class="tecnica"><strong>WordPress y WooCommerce</strong><span class="nivel">Domino</span></div>
+                    <div class="tecnica"><strong>Git</strong><span class="nivel">Domino</span></div>
+                    <div class="tecnica aprendiendo"><strong>Python</strong><span class="nivel">Aprendiendo</span></div>
+                    <div class="tecnica aprendiendo"><strong>SQL y bases de datos</strong><span class="nivel">Aprendiendo</span></div>
+                    <div class="tecnica aprendiendo"><strong>HTML y CSS</strong><span class="nivel">Aprendiendo</span></div>
+                    <div class="tecnica"><strong>Montaje y reparación de equipos</strong><span class="nivel">Domino</span></div>
+                </div>
+                <h3 class="subtitulo">Personales</h3>
+                <div class="personales">
+                    <article class="personal"><h4>Resolución de problemas</h4><p>Me gusta analizar y encontrar soluciones a retos técnicos, buscando siempre una opción eficiente y clara.</p></article>
+                    <article class="personal"><h4>Trabajo en equipo</h4><p>Disfruto colaborando con otras personas, compartiendo conocimientos y ayudando a que el equipo avance.</p></article>
+                    <article class="personal"><h4>Aprendizaje constante</h4><p>Tengo gran interés por la informática y la tecnología, lo que me motiva a mantenerme actualizado.</p></article>
+                    <article class="personal"><h4>Comunicación y empatía</h4><p>Me esfuerzo por escuchar y comunicarme de forma clara, algo fundamental en entornos técnicos y con clientes.</p></article>
+                    <article class="personal"><h4>Organización y responsabilidad</h4><p>Planifico bien mi trabajo y me gusta cumplir con los plazos y tareas asignadas con precisión y compromiso.</p></article>
+                    <article class="personal"><h4>Liderazgo</h4><p>Tengo habilidades para organizar grupos de trabajo, distribuir tareas de forma eficiente y motivar a otras personas para alcanzar objetivos comunes.</p></article>
+                </div>
+            </div>
+        </section>
+
+        <section class="fila seccion" id="proyecto" aria-labelledby="t-proyecto">
+            <div class="celda seccion-titulo">
+                <h2 id="t-proyecto">Proyecto</h2>
+                <p>Algo que he hecho por mi cuenta.</p>
+            </div>
+            <div class="celda seccion-cuerpo proyecto">
+                <div>
+                    <span class="estado">Tema para VS Code, versión 0.4.1</span>
+                    <h3>Vainilla</h3>
+                    <p>Un tema claro para Visual Studio Code que he diseñado yo: fondo vainilla, texto café con leche y siete colores pastel, cada uno con un significado fijo en el código y en la interfaz.</p>
+                    <p>He comprobado el contraste de cada color para que se lea bien todo el día, y lo voy mejorando por versiones.</p>
+                </div>
+                <div>
+                    <div class="paleta" aria-label="Colores del tema Vainilla">
+                        <span style="--i:0;background:#F9E9AF">fondo</span>
+                        <span style="--i:1;background:#654027">texto</span>
+                        <span style="--i:2;background:#26734F">menta</span>
+                        <span style="--i:3;background:#7D4FAA">lavanda</span>
+                        <span style="--i:4;background:#286A96">celeste</span>
+                        <span style="--i:5;background:#A84E12">melocotón</span>
+                        <span style="--i:6;background:#A3427B">rosa</span>
+                        <span style="--i:7;background:#B23A55">cereza</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="fila seccion" id="datos" aria-labelledby="t-datos">
+            <div class="celda seccion-titulo">
+                <h2 id="t-datos">Datos</h2>
+                <p>Información personal e intereses.</p>
+            </div>
+            <div class="celda seccion-cuerpo revela">
+                <dl class="ficha">
+                    <div><dt>Nombre completo</dt><dd>Yenai Lorente Casado</dd></div>
+                    <div><dt>Fecha de nacimiento</dt><dd>28 de mayo de 2008</dd></div>
+                    <div><dt>Ubicación</dt><dd>Cataluña, España</dd></div>
+                    <div><dt>Nacionalidad</dt><dd>Española</dd></div>
+                    <div><dt>Idiomas</dt><dd>Español, catalán, inglés medio y portugués básico</dd></div>
+                    <div><dt>Correo</dt><dd><a href="mailto:sryenalc@gmail.com">sryenalc@gmail.com</a></dd></div>
+                </dl>
+                <p class="intereses">Me apasiona el mundo de la informática, especialmente el montaje y mantenimiento de equipos, el desarrollo de software y las redes. En mi tiempo libre me gusta experimentar con nuevas tecnologías, aprender programación y seguir las últimas novedades del sector tecnológico.</p>
             </div>
         </section>
     </main>
+
+    <footer class="pie">
+        <h2><a href="mailto:sryenalc@gmail.com">¿Hablamos?</a></h2>
+        <div class="pie-fila">
+            <button class="copiar" id="copiar-correo" type="button">Copiar el correo</button>
+            <span>Yenai Lorente Casado, 2026</span>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>
