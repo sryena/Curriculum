@@ -226,6 +226,7 @@ main, .pie { position: relative; z-index: 1; width: min(var(--ancho), 100% - 176
 
 /* Experiencia */
 .trabajo { padding: 36px 32px; }
+.trabajo + .trabajo { border-top: 1px solid var(--linea); }
 .trabajo h3 { margin: 6px 0 0; font: 800 clamp(2rem, 4vw, 3.2rem)/1 var(--display); text-transform: uppercase; }
 .trabajo p { max-width: 70ch; margin: 18px 0 0; }
 
